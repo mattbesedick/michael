@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { Canvas } from 'react-three-fiber'
+import Box from './Box'
+import Controls from './Controls'
+import Plane from './Plane'
+import * as THREE from 'three'
+import Michael from './Michael';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Canvas camera={{ position: [0, 0, 5] }} onCreated={({ gl }) => {
+      gl.shadowMap.enabled = true
+      gl.shadowMap.type = THREE.PCFSoftShadowMap
+    }}>
+      {/* <spotLight /> */}
+      {/* <fog attach="fog" args={["white", 5, 15]} /> */}
+      <Controls />
+      {/* <Box /> */}
+      <ambientLight intensity={.5} />
+      <pointLight position={[40, 40, 40]} />
+      <Suspense fallback={null}>
+        <Michael children="Michael" />
+      </Suspense>
+      <Plane />
+
+    </Canvas>
   );
 }
 
