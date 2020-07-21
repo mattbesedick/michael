@@ -1,31 +1,45 @@
-import React, { Suspense } from 'react';
-import { Canvas } from 'react-three-fiber'
+import React, { Suspense, useRef, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber'
 import Box from './Box'
 import Controls from './Controls'
 import Plane from './Plane'
 import * as THREE from 'three'
 import Michael from './Michael';
+import Confetti from './Confetti';
+import { Physics } from 'use-cannon';
 
 function App() {
 
-  return (
-    <Canvas camera={{ position: [0, 0, 5] }} onCreated={({ gl }) => {
-      gl.shadowMap.enabled = true
-      gl.shadowMap.type = THREE.PCFSoftShadowMap
-    }}>
-      {/* <spotLight /> */}
-      {/* <fog attach="fog" args={["white", 5, 15]} /> */}
-      <Controls />
-      {/* <Box /> */}
-      <ambientLight intensity={.5} />
-      <pointLight position={[40, 40, 40]} />
-      <Suspense fallback={null}>
-        <Michael children="Michael" />
-      </Suspense>
-      <Plane />
+  const mouse = useRef([0, 0])
 
-    </Canvas>
+  // onCreated={({ gl }) => {
+  //   gl.shadowMap.enabled = true
+  //   gl.shadowMap.type = THREE.PCFSoftShadowMap
+  // }}
+  return (
+    <>
+      <Canvas camera={{ position: [-1, 2, 5] }} shadowMap>
+        <Physics>
+          {/* <fog attach="fog" args={["white", 5, 15]} /> */}
+          {/* <Controls /> */}
+          {/* <Box /> */}
+
+          {/* <Suspense fallback={null}> */}
+
+          {/* <Confetti count={10} /> */}
+          <pointLight position={[0, 5, 20]} intensity={.4} />
+          <ambientLight intensity={.3} />
+          <Michael children="Michael" />
+          {/* </Suspense> */}
+          <Box />
+          <Plane />
+        </Physics>
+      </Canvas>
+
+    </>
   );
 }
+
+
 
 export default App;

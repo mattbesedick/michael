@@ -11,9 +11,9 @@ const Controls = () => {
     useFrame(() => {
         orbitRef.current.update()
     })
-    // maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2}
+
     return (
-        <orbitControls args={[camera, gl.domElement]}
+        <orbitControls maxPolarAngle={Math.PI / 3} minPolarAngle={Math.PI / 3} args={[camera, gl.domElement]}
             ref={orbitRef}
         />
     )
