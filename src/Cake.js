@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useSphere } from 'use-cannon'
+import { useLoader, useFrame } from 'react-three-fiber'
 
 const Cake = () => {
-    const [model, setModel] = useState()
-    useEffect(() => {
-        new GLTFLoader().load('/scene.gltf', setModel)
+    const model = useRef()
+    const gltf = useLoader(GLTFLoader, '/scene.gltf')
+
+    useFrame(() => {
+        if (model.current.rotation.y > 7.5) {
+            model.current.rotation.y -= .05
+        }
     })
-
-
-
     return (
-        model ? <primitive object={model.scene} position={[0, 0, -5]} scale={[.01, .01, .01]} /> : null
+        gltf ? <primitive ref={model} castShadow object={gltf.scene} position={[0, 2, -10]} rotation={[0, 10, 0]} scale={[.5, .5, .5]} /> : null
+        // <mesh position={[0, 0, -10]} rotation={[5, 0, 0]}>
+        //     <bufferGeometry attach="geometry"  {...gltf} />
+        //     <meshPhysicalMaterial attach="material" {...gltf} name="Material" />
+        // </mesh>
     )
 }
 

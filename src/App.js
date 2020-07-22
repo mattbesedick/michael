@@ -4,9 +4,10 @@ import Box from './Box'
 import Controls from './Controls'
 import Plane from './Plane'
 import * as THREE from 'three'
-import Michael from './Michael';
+import Text from './Text';
 import Confetti from './Confetti';
 import { Physics } from 'use-cannon';
+import Cake from './Cake'
 
 function App() {
 
@@ -18,21 +19,25 @@ function App() {
   // }}
   return (
     <>
-      <Canvas camera={{ position: [-1, 2, 5] }} shadowMap>
+      <Canvas camera={{ position: [-1, 0, 7] }} shadowMap>
         <Physics>
           {/* <fog attach="fog" args={["white", 5, 15]} /> */}
-          {/* <Controls /> */}
-          {/* <Box /> */}
+          <Controls />
+          <spotLight position={[0, 15, 0]} intensity={.7} />
 
-          {/* <Suspense fallback={null}> */}
-
-          {/* <Confetti count={10} /> */}
-          <pointLight position={[0, 5, 20]} intensity={.4} />
-          <ambientLight intensity={.3} />
-          <Michael children="Michael" />
-          {/* </Suspense> */}
-          <Box />
-          <Plane />
+          <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} intensity={.8} castShadow />
+          <Suspense fallback={null}>
+            <Text children="M" position={[-200, 200, 100]} />
+            <Text children="i" position={[-130, 200, 100]} />
+            <Text children="c" position={[-100, 200, 100]} />
+            <Text children="h" position={[-45, 200, 100]} />
+            <Text children="a" position={[20, 200, 100]} />
+            <Text children="e" position={[80, 200, 100]} />
+            <Text children="l" position={[140, 200, 100]} />
+            <Box />
+            <Plane />
+            <Cake />
+          </Suspense>
         </Physics>
       </Canvas>
 
