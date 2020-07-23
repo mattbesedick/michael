@@ -11,21 +11,11 @@ import Cake from './Cake'
 
 function App() {
 
-  const mouse = useRef([0, 0])
 
-  // onCreated={({ gl }) => {
-  //   gl.shadowMap.enabled = true
-  //   gl.shadowMap.type = THREE.PCFSoftShadowMap
-  // }}
   return (
     <>
-    <p>hello
-      
-    </p>
       <Canvas camera={{ position: [-1, 0, 7] }} shadowMap>
         <Physics>
-
-
           {/* <fog attach="fog" args={["white", 5, 15]} /> */}
           <Controls />
           <spotLight position={[0, 15, 0]} intensity={.7} />
@@ -56,7 +46,6 @@ function App() {
             <Confetti count={200} />
             <Plane />
             <Cake />
-
           </Suspense>
         </Physics>
       </Canvas>
