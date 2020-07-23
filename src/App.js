@@ -27,14 +27,28 @@ function App() {
 
           <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} intensity={.8} castShadow />
           <Suspense fallback={null}>
-            <Text children="M" position={[-200, 200, 100]} />
-            <Text children="i" position={[-130, 200, 100]} />
-            <Text children="c" position={[-100, 200, 100]} />
-            <Text children="h" position={[-45, 200, 100]} />
-            <Text children="a" position={[20, 200, 100]} />
-            <Text children="e" position={[80, 200, 100]} />
-            <Text children="l" position={[140, 200, 100]} />
-            <Box />
+            <Text children="H" position={[-500, 200, 100]} />
+            <Text children="a" position={[-440, 200, 100]} />
+            <Text children="p" position={[-390, 200, 100]} />
+            <Text children="p" position={[-340, 200, 100]} />
+            <Text children="y" position={[-290, 200, 100]} />
+            <Text children="B" position={[-200, 200, 100]} />
+            <Text children="i" position={[-150, 200, 100]} />
+            <Text children="r" position={[-120, 200, 100]} />
+            <Text children="t" position={[-65, 200, 100]} />
+            <Text children="h" position={[-20, 200, 100]} />
+            <Text children="d" position={[40, 200, 100]} />
+            <Text children="a" position={[100, 200, 100]} />
+            <Text children="y" position={[160, 200, 100]} />
+            <Text children="M" position={[250, 200, 100]} />
+            <Text children="i" position={[320, 200, 100]} />
+            <Text children="c" position={[350, 200, 100]} />
+            <Text children="h" position={[410, 200, 100]} />
+            <Text children="a" position={[470, 200, 100]} />
+            <Text children="e" position={[520, 200, 100]} />
+            <Text children="l" position={[560, 200, 100]} />
+            {/* <Box /> */}
+            <Confetti count={200} />
             <Plane />
             <Cake />
           </Suspense>

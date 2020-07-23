@@ -22,7 +22,7 @@ const Michael = ({ children, position, props }) => {
 
 
     return (
-        <group scale={[.01, .01, .01]} >
+        <group scale={[.0065, .0065, .0065]} >
             <mesh position={position} receiveShadow castShadow ref={mesh}>
                 <textBufferGeometry attach="geometry" args={[children, config]} />
                 <meshPhysicalMaterial attach="material" color="white" />
