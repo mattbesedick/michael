@@ -8,6 +8,7 @@ import Text from './Text';
 import Confetti from './Confetti';
 import { Physics } from 'use-cannon';
 import Cake from './Cake'
+import Balloons from './Balloons'
 
 function App() {
 
@@ -41,7 +42,8 @@ function App() {
             <Text children="a" position={[470, 200, 100]} />
             <Text children="e" position={[520, 200, 100]} />
             <Text children="l" position={[560, 200, 100]} />
-
+            <Balloons position={[3, 0, 0]} />
+            <Balloons position={[-3, 0, 0]} />
             <Confetti count={200} />
             <Plane />
             <Cake />
