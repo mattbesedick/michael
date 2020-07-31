@@ -19,7 +19,6 @@ function App() {
           {/* <fog attach="fog" args={["white", 5, 15]} /> */}
           <Controls />
           <spotLight position={[0, 15, 0]} intensity={.7} />
-
           <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} intensity={.8} castShadow />
           <Suspense fallback={null}>
             <Text children="H" position={[-500, 200, 100]} />
@@ -42,8 +41,7 @@ function App() {
             <Text children="a" position={[470, 200, 100]} />
             <Text children="e" position={[520, 200, 100]} />
             <Text children="l" position={[560, 200, 100]} />
-            <Text children="!" position={[600, 200, 100]} />
-            {/* <Box /> */}
+
             <Confetti count={200} />
             <Plane />
             <Cake />
