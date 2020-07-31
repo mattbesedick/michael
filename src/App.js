@@ -42,6 +42,7 @@ function App() {
             <Text children="a" position={[470, 200, 100]} />
             <Text children="e" position={[520, 200, 100]} />
             <Text children="l" position={[560, 200, 100]} />
+            <Text children="!" position={[600, 200, 100]} />
             {/* <Box /> */}
             <Confetti count={200} />
             <Plane />
